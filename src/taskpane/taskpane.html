@@ -12,30 +12,73 @@
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
-    <!-- <script type="text/javascript" src="../../node_modules/jspdf/dist/jspdf.min.js"></script> -->
+    <!-- JQuery multiselect dropdown -->
     <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/jquery_multiselect/jquery.multiselect.js"></script>
+    <link href="../../node_modules/jquery_multiselect/jquery.multiselect.css" rel="stylesheet" type="text/css" />
+
 
     <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+    <!-- <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css" /> -->
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css" />
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css" />
+    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/js/fabric.min.js"></script>
 
     <!-- Template styles -->
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body class="ms-font-m ms-welcome ms-Fabric">
-    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+    <!-- <header class="ms-welcome__header ms-bgColor-neutralLighter">
         <img width="90" height="90" src="../../assets/image.svg" alt="Appian" title="Appian" />
-    </header>
+    </header> -->
     <section id="sideload-msg" class="ms-welcome__main">
         <h2 class="ms-font-xl" id="sendMailContent">Please sideload your add-in to see app body.</h2>
     </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
-        <div role="button" id="runSendMailContent" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+        <div class="container">
+            <div class="ms-Label">Search By</div>
+            <div class="ms-Dropdown">
+                <select id="filters" multiple="multiple">
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div class="ms-Label">Search Text</div>
+            <form class="ms-TextField" id="searchCase" action="">
+                <input id="searchText" class="ms-TextField-field" type="text" placeholder="Search.." name="search">
+                <button class="ms-Button ms-Button--hero" type="submit"><i class="ms-Icon ms-Icon--Search"></i></button>
+            </form>
+        </div>
+        <div class="warning" id="searchWarning"></div>
+        <div id="loader" style="display: none; margin: 10px 0px" class="ms-Spinner ms-Spinner--large">
+        </div>
+        <div id="banner" style="display: none" class="banner">
+                    No case found!
+        </div>
+        <table id="caseTable" style="display: none" class="ms-Table ms-Table--selectable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Case Id</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody id="caseTableBody">
+            </tbody>
+        </table>
+        <button disabled type="button" disabled id="runSendMailContent"
+            class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
             <span class="ms-Button-label">Send mail content to Appian</span>
-        </div>
-        <div role="button" id="runSendAttachmentContent" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+        </button>
+        <button disabled type="button" disabled id="runSendAttachmentContent"
+            class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
             <span class="ms-Button-label">Send attachment(s) to Appian</span>
-        </div>
+        </button>
         <p><label id="item-subject"></label></p>
     </main>
 </body>

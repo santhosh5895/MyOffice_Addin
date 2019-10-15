@@ -4,8 +4,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Vuram</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Appian Add-in"/>
-  <Description DefaultValue="A template to get started."/>
+  <DisplayName DefaultValue="CMS"/>
+  <Description DefaultValue="Outlook add-in for case management system"/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.vuram.com"/>
@@ -97,7 +97,7 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Vuram Add-in"/>
+        <bt:String id="GroupLabel" DefaultValue="Appian Add-in"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
         <!-- <bt:String id="ActionButton.Label" DefaultValue="Perform an action"/> -->
       </bt:ShortStrings>

@@ -57,12 +57,11 @@ module.exports = async (env, options) => {
       headers: {
         "Access-Control-Allow-Origin": "*"
       }, 
-      
+      host: '0.0.0.0',
       https: (options.https !== undefined) ? options.https : await devCerts.getHttpsServerOptions(),
       // port: process.env.npm_package_config_dev_server_port || 3000
       port: 3000
     }
   };
-  // console.log("config: "+JSON.stringify(config));
   return config;
 };
