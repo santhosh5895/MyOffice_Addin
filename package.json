@@ -24,7 +24,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery_multiselect": "^2.3.9",
     "jspdf": "^1.5.3"
   },
