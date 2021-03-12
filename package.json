@@ -26,7 +26,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "jquery_multiselect": "^2.3.9",
-    "jspdf": "^1.5.3"
+    "jspdf": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
